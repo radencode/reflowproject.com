@@ -1,11 +1,13 @@
 header
   width: 100vw
   height: 100vh
-  background: linear-gradient(120deg, #141B23 , #7A418B 40%, #141B23)
-  background-size: 200% 200%
-  background-position: 0 0
+  position: relative
+  background-image: url('./resources/images/bg.png')
+  background-size: cover
   background-repeat: no-repeat
-  transition: 500ms all ease
 
-  &.animate
-    background-position: 0% 50%
+  svg
+    width: 300px
+    height: 300px
+    stroke-dasharray: 4000
+    stroke-dashoffset: 4000
