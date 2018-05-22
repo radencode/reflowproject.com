@@ -1,9 +1,15 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 
+//Containers
+import Header from 'containers/header';
+
+//Styles
+import './app.sass';
+
 class App extends React.Component{
   render(){
-    return <h1>Reflow Project</h1>
+    return <Header/>
   }
 }
 
