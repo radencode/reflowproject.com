@@ -1,11 +1,10 @@
 import HtmlWebpackPlugin from 'html-webpack-plugin';
 import { resolve } from 'path';
-import webpack from 'webpack';
 import WebpackProgressBarPlugin from 'progress-bar-webpack-plugin';
 
 export default {
 	entry: {
-		app: resolve(__dirname, '../', 'src', 'app.jsx',),
+		app: ['babel-polyfill', resolve(__dirname, '../', 'src', 'app.jsx')],
 		vendor: ['react'],
 	},
 	output: {
@@ -47,10 +46,7 @@ export default {
 	},
 	resolve: {
 		extensions: ['.js', '.jsx', '.json', '.sass', '.jpg', '.otf'],
-		modules: [
-			resolve(__dirname, '../', 'src'),
-			resolve(__dirname, '../', 'node_modules'),
-		],
+		modules: [resolve(__dirname, '../', 'src'), resolve(__dirname, '../', 'node_modules')],
 	},
 	plugins: [
 		new WebpackProgressBarPlugin(),

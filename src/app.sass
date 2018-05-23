@@ -1,6 +1,21 @@
+//Fonts
+@font-face
+  font-family: "Esphimere"
+  src: url(./resources/fonts/Esphimere.otf)
+@font-face
+  font-family: "Esphimere-Bold"
+  src: url(./resources/fonts/Esphimere-Bold.otf)
+
+//Colors
+$purple: ( light: #7A418B, dark: #4D2F5F)
+$black: #070A0D
+$blue: ( main: #141B23, light: #18212B, dark: #0E141A ) 
+
 body, html
+  background-color: map-get($blue, 'dark')
   padding: 0
   margin: 0
+  font-family: Esphimere
 
 //Containers
 @import './containers/header/header.sass'

@@ -9,8 +9,17 @@ import Loader from 'containers/loader';
 import './app.sass';
 
 class App extends React.Component {
+	constructor() {
+		super();
+		this.state = { loading: true };
+	}
+
+	loaded = () => {
+		this.setState({ loading: false });
+	};
+
 	render() {
-		return <Loader />;
+		return this.state.loading ? <Loader loaded={this.loaded} /> : <Header />;
 	}
 }
 
