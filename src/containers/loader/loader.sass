@@ -1,27 +1,38 @@
 main
-  width: 100vw
-  height: 100vh
-  position: relative
-  background-image: url('./resources/images/loader.png')
-  background-size: cover
-  background-repeat: no-repeat
-
-.container
-	width: 300px
-	height: 300px
-	color: white
+	width: 100vw
+	height: 100vh
 	position: relative
-	overflow: hidden
-	transition: 250ms all ease-in-out
+	background-image: url('./resources/images/loader.png')
+	background-size: cover
+	background-repeat: repeat
 
-	&.closed
-		width: 0
-
-	.text
-		width: 300px
-		height: 300px
+	.message
+		width: 400px
+		height: 50px
 		position: absolute
-		top: 0
-		left: 0
-		text-align: center
-		line-height: 300px
+		top: 50%
+		left: 50%
+		transform: translate(-50%, -50%)
+
+		.slider
+			background-color: #7A418B
+			width: 5px
+			height: 0
+		
+			transform-origin: center
+
+			&.initial
+				transition: 1s all ease
+				height: 50px
+
+			&.typing
+				height: 50px
+				animation: rotate 600ms linear infinite
+
+			@keyframes rotate
+				0%
+					transform: rotate(0deg)
+				50%
+					transform: rotate(180deg)
+				100%
+					transform: rotate(360deg)
