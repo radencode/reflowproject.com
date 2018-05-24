@@ -7,11 +7,25 @@ main
 	background-image: url('./resources/images/loader.png')
 	background-size: cover
 	background-repeat: repeat
-	transition: 1s all ease-in-out
-	transition-delay: 500ms
 
 	&.slideout
-		left: -100vw
+		animation: slideout
+		animation-delay: 500ms
+		animation-duration: 2s
+		animation-iteration-count: 1
+		animation-timing-function: ease-in-out
+
+		@keyframes slideout
+			0%
+				left: 0
+			50%
+				left: -60vw
+			60%
+				left: -60vw
+			70%
+				left: -30vw
+			100%
+				left: -100vw
 
 	.loader-container
 		width: 180px
@@ -134,14 +148,14 @@ main
 						top: 100px
 						opacity: 0
 
-					&.second:nth-child(3)						
+					&.second:nth-child(2)						
 						transition: 500ms ease-in
 
-					&.second:nth-child(3),	&.third:nth-child(3)
+					&.second:nth-child(2),	&.third:nth-child(2)
 						top: 100px
 						opacity: 0
 
-					&.third:nth-child(2)
+					&.third:nth-child(3)
 						top: 100px
 						opacity: 0
 						transition: 500ms ease-in

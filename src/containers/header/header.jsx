@@ -2,9 +2,9 @@ import PropTypes from 'prop-types';
 import React from 'react';
 
 class Header extends React.Component {
-	renderContent = (hasLoaded) => {
-		if(!hasLoaded) return;
-		return (	
+	renderContent = hasLoaded => {
+		if (!hasLoaded) return;
+		return (
 			<svg x='0px' y='0px' viewBox='0 0 577 586' enableBackground='new 0 0 577 586'>
 				<g>
 					<polygon
@@ -19,15 +19,12 @@ class Header extends React.Component {
 					/>
 					<polygon fill='#FFFFFF' points='0,292 0,294.725 291,586 496.917,586 203,292 	' />
 				</g>
-			</svg>);
-	}
+			</svg>
+		);
+	};
 
 	render() {
-		return (
-			<header>
-				{this.renderContent(this.props.hasLoaded)}
-			</header>
-		);
+		return <header>{this.renderContent(this.props.hasLoaded)}</header>;
 	}
 }
 

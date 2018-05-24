@@ -18,25 +18,26 @@ class App extends React.Component {
 		this.setState({ ...this.state, loading: false });
 		setTimeout(() => {
 			this.setState({ ...this.state, loaded: true });
-		}, 3500);
+		}, 4000);
 	};
 
-	renderLoader = (loaded) => {
-		if(loaded)	return;
-		return <Loader finishLoading={this.finishLoading}/>;
-	}
+	renderLoader = loaded => {
+		if (loaded) return;
+		return <Loader finishLoading={this.finishLoading} />;
+	};
 
-	renderHeader = (loading) => {
-		if(loading)	return;
-		return <Header hasLoaded={this.state.loaded}/>;
-	}
+	renderHeader = loading => {
+		if (loading) return;
+		return <Header hasLoaded={this.state.loaded} />;
+	};
 
 	render() {
 		return (
-			<div class='app'> 
+			<div class='app'>
 				{this.renderHeader(this.state.loading)}
 				{this.renderLoader(this.state.loaded)}
-			</div>);
+			</div>
+		);
 	}
 }
 
