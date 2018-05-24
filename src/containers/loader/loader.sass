@@ -1,10 +1,17 @@
 main
 	width: 100vw
 	height: 100vh
-	position: relative
+	position: absolute
+	top: 0
+	left: 0
 	background-image: url('./resources/images/loader.png')
 	background-size: cover
 	background-repeat: repeat
+	transition: 1s all ease-in-out
+	transition-delay: 500ms
+
+	&.slideout
+		left: -100vw
 
 	.loader-container
 		width: 180px
@@ -176,7 +183,7 @@ main
 					stroke-width: 5
 					transition: all 1s ease-in-out
 					transform-origin: center
-					transform: rotate(45deg)
+					transform: rotate(-45deg)
 
 					&.reflow, &.loaded
 						stroke-dashoffset: 0

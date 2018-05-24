@@ -4,7 +4,7 @@ import React from 'react';
 class Loader extends React.Component {
 	constructor() {
 		super();
-		this.state = { message: '', messageStage: '', ballStage: '' };
+		this.state = { message: '', messageStage: '', ballStage: '', slideOut: false };
 	}
 
 	componentDidMount() {
@@ -23,7 +23,7 @@ class Loader extends React.Component {
 						setTimeout(() => {
 							this.setState({ ...this.state, messageStage: 'closed' });
 							setTimeout(() => {
-								this.setState({ message: '', messageStage: done ? 'reflow' : 'initial' });
+								this.setState({ ...this.state, message: '', messageStage: done ? 'reflow' : 'initial' });
 								resolve();
 							}, 750);
 						}, 750);
@@ -43,11 +43,9 @@ class Loader extends React.Component {
 				this.setState({ ...this.state, ballStage: 'initial second' });
 				await this.typeMessageAnimation('Manage.', true);
 				this.setState({ ...this.state, ballStage: 'initial third' });
+				this.props.finishLoading();
 				setTimeout(() => {
-					this.setState({ ...this.state, messageStage: 'loaded' });
-					setTimeout(() => {
-						this.props.loaded();
-					}, 1000);
+					this.setState({ ...this.state, messageStage: 'loaded', slideOut: true });
 				}, 1500);
 			}, 500);
 		}, 500);
@@ -55,7 +53,7 @@ class Loader extends React.Component {
 
 	render() {
 		return (
-			<main>
+			<main class={this.state.slideOut ? 'slideout' : 'loading'}>
 				<div class='loader-container'>
 					<div class='message'>
 						<div class={`bar ${this.state.messageStage}`} />
@@ -109,7 +107,7 @@ class Loader extends React.Component {
 }
 
 Loader.propTypes = {
-	loaded: PropTypes.func.isRequired,
+	finishLoading: PropTypes.func.isRequired,
 };
 
 export default Loader;

@@ -11,15 +11,32 @@ import './app.sass';
 class App extends React.Component {
 	constructor() {
 		super();
-		this.state = { loading: true };
+		this.state = { loaded: false, loading: true };
 	}
 
-	loaded = () => {
-		this.setState({ loading: false });
+	finishLoading = () => {
+		this.setState({ ...this.state, loading: false });
+		setTimeout(() => {
+			this.setState({ ...this.state, loaded: true });
+		}, 3500);
 	};
 
+	renderLoader = (loaded) => {
+		if(loaded)	return;
+		return <Loader finishLoading={this.finishLoading}/>;
+	}
+
+	renderHeader = (loading) => {
+		if(loading)	return;
+		return <Header hasLoaded={this.state.loaded}/>;
+	}
+
 	render() {
-		return this.state.loading ? <Loader loaded={this.loaded} /> : <Header />;
+		return (
+			<div class='app'> 
+				{this.renderHeader(this.state.loading)}
+				{this.renderLoader(this.state.loaded)}
+			</div>);
 	}
 }
 
