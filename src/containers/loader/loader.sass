@@ -1,4 +1,4 @@
-main
+.main
 	width: 100vw
 	height: 100vh
 	position: absolute
@@ -11,19 +11,15 @@ main
 	&.slideout
 		animation: slideout
 		animation-delay: 500ms
-		animation-duration: 2s
+		animation-duration: 1s
 		animation-iteration-count: 1
 		animation-timing-function: ease-in-out
 
 		@keyframes slideout
 			0%
 				left: 0
-			50%
-				left: -60vw
-			60%
-				left: -60vw
-			70%
-				left: -30vw
+			80%
+				left: -20vw
 			100%
 				left: -100vw
 

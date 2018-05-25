@@ -3,6 +3,9 @@
   font-family: "Esphimere"
   src: url(./resources/fonts/Esphimere.otf)
 @font-face
+  font-family: "Esphimere-Light"
+  src: url(./resources/fonts/Esphimere-Light.otf)
+@font-face
   font-family: "Esphimere-Bold"
   src: url(./resources/fonts/Esphimere-Bold.otf)
 
@@ -13,11 +16,18 @@ $blue: ( main: #141B23, light: #18212B, dark: #0E141A )
 
 body, html
   background-color: map-get($blue, 'dark')
-  position: relative
   padding: 0
   margin: 0
   font-family: Esphimere
 
+h1, h2, h3, p
+	margin: 0
+	padding: 0
+	font-size: 100%
+	font-weight: normal
+
 //Containers
 @import './containers/header/header.sass'
 @import './containers/loader/loader.sass'
+@import './containers/logo/logo.sass'
+@import './containers/menu/menu.sass'

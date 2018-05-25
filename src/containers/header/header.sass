@@ -7,7 +7,90 @@ header
   background-image: url('./resources/images/bg.png')
   background-size: cover
   background-repeat: no-repeat
+  background-position: -100px
 
+  .menu-button
+    width: 25px
+    height: 16px
+    position: absolute
+    top: 25px
+    right: 25px
+    cursor: pointer
+
+    .bar
+      background-color: #FFF
+      width: 25px
+      height: 2px
+      position: absolute
+      transition: 350ms all ease-in-out    
+
+      &.top
+        top: 0
+        left: 0
+      &.middle
+        top: 7px
+        right: 0
+      &.bottom
+        top: 14px
+        left: 0
+
+    &:hover > .top, &:hover > .middle, &:hover >  .bottom
+        width: 30px
+
+  .slogan
+    background-color: rgba(24, 33, 43, 0.25)
+    width: 90%
+    height: 70px
+    position: relative
+    top: 120px
+
+    h1
+      width: 210px
+      height: auto
+      position: absolute
+      top: 50%
+      left: 50%
+      transform: translate(-50%, -50%)
+      font-family: Esphimere
+      font-size: 18px
+      letter-spacing: 0.15em
+      text-transform: uppercase
+      color: #FFF
+
+      span
+        font-family: Esphimere-Bold
+        color: map-get($purple, 'light')
+
+  .discription
+    width: 250px
+    height: auto
+    margin: auto
+    position: relative
+    top: 180px
+    font-family: Esphimere-Light
+    font-size: 11px
+    letter-spacing: 0.10em
+    line-height: 20px
+    color: #FFF
+
+  .download
+    border: 1px solid rgba(24, 33, 43, 0.4)
+    position: absolute
+    left: 50%
+    bottom: 100px
+    transform: translate(-50%, 0)
+    padding: 1px
+    
+    h3
+      background-color: rgba(24, 33, 43, 0.4)
+      padding: 15px 20px
+      white-space: nowrap
+      text-transform: uppercase
+      font-family: Esphimere
+      font-size: 10px
+      letter-spacing: 0.10em
+      color: #FFF
+      
   svg
     width: 300px
     height: 300px

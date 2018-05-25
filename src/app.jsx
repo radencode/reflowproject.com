@@ -18,7 +18,7 @@ class App extends React.Component {
 		this.setState({ ...this.state, loading: false });
 		setTimeout(() => {
 			this.setState({ ...this.state, loaded: true });
-		}, 4000);
+		}, 3000);
 	};
 
 	renderLoader = loaded => {
@@ -34,8 +34,9 @@ class App extends React.Component {
 	render() {
 		return (
 			<div class='app'>
-				{this.renderHeader(this.state.loading)}
-				{this.renderLoader(this.state.loaded)}
+				{/*this.renderHeader(this.state.loading)*/}
+				{/*this.renderLoader(this.state.loaded)*/}
+				<Header hasLoaded={true} />
 			</div>
 		);
 	}

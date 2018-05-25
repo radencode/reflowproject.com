@@ -53,7 +53,7 @@ class Loader extends React.Component {
 
 	render() {
 		return (
-			<main class={this.state.slideOut ? 'slideout' : 'loading'}>
+			<div class={this.state.slideOut ? 'main slideout' : 'main loading'}>
 				<div class='loader-container'>
 					<div class='message'>
 						<div class={`bar ${this.state.messageStage}`} />
@@ -101,7 +101,7 @@ class Loader extends React.Component {
 						</svg>
 					</div>
 				</div>
-			</main>
+			</div>
 		);
 	}
 }
