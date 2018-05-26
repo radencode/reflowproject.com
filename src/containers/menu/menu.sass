@@ -1,0 +1,35 @@
+.menu
+  background: linear-gradient(to bottom, #0E141A , #18212B)
+  position: absolute
+  z-index: 10
+
+  &.open
+    width: 100vw
+    height: 100vh
+    transition: 1s all ease-in-out
+    animation: bubble-in 1000ms ease-in
+    animation-iteration-count: 1
+    
+
+  @keyframes bubble-in
+    0%
+      width: 100px
+      height: 100px
+      top: 50%
+      left: -300px
+      transform: translate(0, -50%) rotate(45deg)
+    80%
+      width: 100px
+      height: 100px
+      transform: translate(-50%, -50%) rotate(45deg)
+      top: 50%
+      left: 50%
+    100%
+      width: 100vw
+      height: 100vh
+      transform: translate(0, 0) rotate(0deg)
+      top: 0
+      left: 0
+
+  &.closed
+    left: -100vw

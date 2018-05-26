@@ -4,10 +4,12 @@ import React from 'react';
 
 //Containers
 import Logo from 'containers/logo';
+import Menu from 'containers/menu';
 
 class Header extends React.Component {
 	constructor() {
 		super();
+		this.state = { isMenuOpen: false };
 		this.isDesktop = this.detectDesktop();
 	}
 
@@ -16,12 +18,17 @@ class Header extends React.Component {
 		return true;
 	};
 
+	handleMenu = () => {
+		this.setState({ ...this.state, isMenuOpen: !this.state.isMenuOpen });
+	}
+
 	renderContent = hasLoaded => {
 		if (!hasLoaded) return;
 		return (
 			<div>
+				<Menu isOpen={this.state.isMenuOpen}/>
 				<Logo />
-				<div class='menu-button'>
+				<div class='menu-button' onClick={this.handleMenu}>
 					<div class='bar top' />
 					<div class='bar middle' />
 					<div class='bar bottom' />
