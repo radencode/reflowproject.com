@@ -74,7 +74,7 @@ class Header extends React.Component {
 						</div>
 						<div class='discription'>
 							<h2 class={`${this.props.delayedAnimate ? 'animate' : ''}`}>
-								— Rename, group and manage your files with Reflow. With its modern user interface and lighting fast API,
+								— Rename, group and manage your files with Reflow. With its modern user interface and lightning fast API,
 								it brings an incredible user experience.
 							</h2>
 							<div class={`line-break ${this.props.delayedAnimate ? 'animate' : ''}`} />
