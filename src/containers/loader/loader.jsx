@@ -57,7 +57,7 @@ class Loader extends React.Component {
 				<div class='loader-container'>
 					<div class='message'>
 						<div class={`bar ${this.state.messageStage}`} />
-						<div class={`slider ${this.state.messageStage}`}>
+						<div class={`slider-container ${this.state.messageStage}`}>
 							<div class={`typed ${this.state.messageStage}`}>{this.state.message}</div>
 							<div class={`highlight ${this.state.messageStage}`}>{this.state.message}</div>
 						</div>

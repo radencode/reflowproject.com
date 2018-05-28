@@ -1,10 +1,18 @@
+import MediaQuery from 'react-responsive';
+import PropTypes from 'prop-types';
 import React from 'react';
 
-const Logo = () => {
+const Logo = ({ animate }) => {
 	return (
 		<div class='logo-container'>
 			<div class='logo'>
-				<svg class='logo-reflow-svg' x='0px' y='0px' viewBox='0 0 577 586' enableBackground='new 0 0 577 586'>
+				<svg
+					class={`logo-reflow-svg ${animate ? 'animate' : ''}`}
+					x='0px'
+					y='0px'
+					viewBox='0 0 577 586'
+					enableBackground='new 0 0 577 586'
+				>
 					<g>
 						<polygon
 							fill='#FFFFFF'
@@ -20,15 +28,38 @@ const Logo = () => {
 					</g>
 				</svg>
 				<svg class='logo-border-svg'>
-					<circle class='logo-border-circle' cx='20' cy='20' r='18' strokeDasharray='1000' strokeDashoffset='0' />
+					<MediaQuery query='(max-width: 1023px)'>
+						<circle
+							class={`logo-border-circle ${animate ? 'animate' : ''}`}
+							cx='20'
+							cy='20'
+							r='18'
+							strokeDasharray='1000'
+							strokeDashoffset='1000'
+						/>
+					</MediaQuery>
+					<MediaQuery query='(min-width: 1024px)'>
+						<circle
+							class={`logo-border-circle ${animate ? 'animate' : ''}`}
+							cx='25'
+							cy='25'
+							r='23'
+							strokeDasharray='1000'
+							strokeDashoffset='1000'
+						/>
+					</MediaQuery>
 				</svg>
 			</div>
 			<div class='logo-labels'>
-				<h2>flow</h2>
-				<h2>project</h2>
+				<h2 class={`${animate ? 'animate' : ''}`}>flow</h2>
+				<h2 class={`${animate ? 'animate' : ''}`}>project</h2>
 			</div>
 		</div>
 	);
+};
+
+Logo.propTypes = {
+	animate: PropTypes.bool.isRequired,
 };
 
 export default Logo;

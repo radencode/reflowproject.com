@@ -11,13 +11,16 @@ import './app.sass';
 class App extends React.Component {
 	constructor() {
 		super();
-		this.state = { loaded: false, loading: true };
+		this.state = { loaded: false, loading: true, delayedAnimate: false };
 	}
 
 	finishLoading = () => {
 		this.setState({ ...this.state, loading: false });
 		setTimeout(() => {
 			this.setState({ ...this.state, loaded: true });
+			setTimeout(() => {
+				this.setState({ ...this.state, delayedAnimate: true });
+			}, 500);
 		}, 3000);
 	};
 
@@ -28,15 +31,15 @@ class App extends React.Component {
 
 	renderHeader = loading => {
 		if (loading) return;
-		return <Header hasLoaded={this.state.loaded} />;
+		return <Header animate={this.state.loaded} delayedAnimate={this.state.delayedAnimate} />;
 	};
 
 	render() {
 		return (
 			<div class='app'>
-				{/*this.renderHeader(this.state.loading)*/}
-				{/*this.renderLoader(this.state.loaded)*/}
-				<Header hasLoaded={true} />
+				{this.renderHeader(this.state.loading)}
+				{this.renderLoader(this.state.loaded)}
+				{/* <Header hasLoaded={true} /> */}
 			</div>
 		);
 	}

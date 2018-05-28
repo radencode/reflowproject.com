@@ -4,10 +4,11 @@ header
   position: absolute
   top: 0
   left: 0
-  background-image: url('./resources/images/bg.png')
+  background-image: url('./resources/images/background.png')
   background-size: cover
   background-repeat: no-repeat
   background-position: -100px
+  overflow: hidden
 
   .menu-button
     width: 25px
@@ -15,35 +16,58 @@ header
     position: absolute
     z-index: 20
     top: 25px
-    right: 25px
+    right: -25px
     cursor: pointer
+    transition: 500ms ease-in-out
 
-    .bar
+    &.animate
+      right: 25px
+
+    .line
       background-color: #FFF
-      width: 25px
       height: 2px
       position: absolute
       transition: 350ms all ease-in-out    
 
       &.top
-        top: 0
-        left: 0
+        &.open
+          top: 7px
+          width: 25px
+          transform: rotate(45deg)
+        &.closed
+          width: 25px
+          top: 0
+          left: 0
       &.middle
-        top: 7px
-        right: 0
+        &.open
+          width: 25px
+          opacity: 0
+        &.closed
+          width: 25px
+          top: 7px
+          left: 0
       &.bottom
-        top: 14px
-        left: 0
-
-    &:hover > .top, &:hover > .middle, &:hover >  .bottom
-        width: 30px
+        &.open
+          top: 7px
+          width: 25px
+          transform: rotate(-45deg)
+        &.closed
+          width: 25px
+          top: 14px
+          left: 0
 
   .slogan
     background-color: rgba(24, 33, 43, 0.25)
     width: 90%
     height: 70px
     position: relative
-    top: 120px
+    top: -70px
+    opacity: 0
+    transition: 500ms all ease-in-out
+
+    &.animate
+      opacity: 1
+      top: 100px
 
     h1
       width: 210px
@@ -58,42 +82,227 @@ header
       text-transform: uppercase
       color: #FFF
 
-      span
+      .highlight
         font-family: Esphimere-Bold
         color: map-get($purple, 'light')
+        opacity: 0
+        transition: 500ms ease-in-out
+
+        &.animate
+          opacity: 1
+
+      .adjective
+        opacity: 0
+        transition: 500ms ease-in-out
+        transition-delay: 300ms
+
+        &.animate
+          opacity: 1
 
   .discription
     width: 250px
     height: auto
     margin: auto
     position: relative
-    top: 180px
-    font-family: Esphimere-Light
-    font-size: 11px
-    letter-spacing: 0.10em
-    line-height: 20px
-    color: #FFF
-
-  .download
-    border: 1px solid rgba(24, 33, 43, 0.4)
-    position: absolute
-    left: 50%
-    bottom: 100px
-    transform: translate(-50%, 0)
-    padding: 1px
+    top: 140px
     
-    h3
-      background-color: rgba(24, 33, 43, 0.4)
-      padding: 15px 20px
-      white-space: nowrap
-      text-transform: uppercase
-      font-family: Esphimere
-      font-size: 10px
+    h2
+      font-family: Esphimere-Light
+      font-size: 11px
       letter-spacing: 0.10em
+      line-height: 20px
       color: #FFF
-      
-  svg
-    width: 300px
-    height: 300px
-    stroke-dasharray: 4000
-    stroke-dashoffset: 4000
+      opacity: 0
+      transition: 500ms all ease-in-out
+
+      &:nth-child(1)
+        &.animate
+          transition-delay: 500ms
+          opacity: 1
+
+      &:nth-child(3)
+        padding-top: 50px
+        &.animate
+          transition-delay: 1000ms
+          opacity: 1
+          padding-top: 0
+
+    .line-break
+      background-color: map-get($purple, 'light')
+      width: 0
+      height: 2px
+      margin: 5px 0
+      transition: 500ms all ease-in-out
+      transition-delay: 750ms
+
+      &.animate
+        width: 100%
+
+
+
+@media screen and (min-width: 375px)
+  header
+    .slogan
+      width: 80%
+      h1
+        width: 220px
+        transform: translate(-45%, -50%)
+        font-size: 19px
+    .discription
+      width: 270px
+      top: 180px
+      h2
+        font-size: 12px
+        line-height: 25px
+      .line-break
+        margin: 10px 0
+
+
+@media screen and (min-width: 600px)
+  header
+    .slogan
+      height: 100px
+      top: -100px      
+      h1
+        width: 290px
+        transform: translate(-40%, -50%)
+        font-size: 25px
+    .discription
+      width: 450px
+      h2
+       font-size: 14px
+
+@media screen and (min-width: 900px)
+  header
+    .slogan
+      width: 70%
+      height: 150px
+      top: -150px
+      h1
+        width: 340px
+        font-size: 28px
+    .discription
+      width: 600px
+      top: 250px
+      h2
+        font-size: 15px
+
+@media screen and (min-width: 1024px)
+  header
+    min-height: 800px
+    background-position: 0
+    .side-menu
+      background-color: rgba(24, 33, 43, 0.25)
+      width: 200px
+      height: 100%
+      position: absolute
+      top: 0
+      left: -200px
+      transition: 500ms all ease-in
+
+      &.animate
+        left: 0
+
+    main
+      width: 420px
+      height: 100%
+      position: absolute
+      top: 0
+      left: 25%        
+      .slogan
+        width: 420px
+        height: 200px
+        top: -200px
+        &.animate
+          top: 0px
+        h1
+          width: 345px
+          position: absolute
+          top: auto
+          bottom: 20px
+          left: 50%
+          transform: translate(-50%, 0)
+          font-size: 30px
+      .discription
+        width: 100%
+        top: 100px
+
+        .line-break
+          margin: 20px 0 
+
+
+@media screen and (min-width: 1400px)
+  header
+    .side-menu
+      width: 300px
+      left: -300px
+    main
+      width: 480px      
+      .slogan
+        width: 480px
+        height: 220px
+        top: -220px
+        h1
+          width: 377px
+          position: absolute
+          top: auto
+          bottom: 20px
+          left: 50%
+          transform: translate(-50%, 0)
+          font-size: 33px
+      .discription
+        width: 100%
+        top: 100px
+
+        .line-break
+          margin: 20px 0 
+
+@media screen and (min-width: 1600px)
+  header
+    min-height: 900px
+    main
+      width: 540px    
+      .slogan
+        width: 540px
+        height: 250px
+        top: -250px
+        h1
+          width: 458px
+          bottom: 25px
+          font-size: 40px
+      .discription
+        top: 120px
+
+@media screen and (min-width: 1900px)
+  header
+    main
+      width: 660px    
+      .slogan
+        width: 660px
+        height: 340px
+        top: -340px
+        h1
+          width: 572px
+          bottom: 25px
+          font-size: 50px
+      .discription
+        top: 120px
+        h2
+          font-size: 16px
+
+@media screen and (min-width: 2200px)
+  header
+    main
+      width: 720px      
+      .slogan
+        width: 720px
+        height: 360px
+        top: -360px
+        h1
+          width: 628px
+          bottom: 23px
+          font-size: 55px
+      .discription
+        top: 150px
+        h2
+          font-size: 18px

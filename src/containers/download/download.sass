@@ -1,0 +1,273 @@
+@import './styles/button.sass'
+
+.download-overlay
+	background-color: rgba(20, 27, 35, 0.9)
+	width: 100%
+	height: 100%
+	position: fixed
+	top: 0
+	left: 0
+	z-index: 100
+	transition: 350ms all ease-in-out
+
+	&.open
+		opacity: 1
+		visibility: visible
+
+	&.closed
+		opacity: 0
+		visibility: hidden
+
+	&.inactive
+		pointer-events: none
+		
+	&.active
+		pointer-events: auto
+
+	.download-background
+		background-color: map-get($blue, 'dark')
+		width: 100%
+		height: 100%
+		position: absolute
+		top: 50%
+		left: 50%
+		transform: translate(-50%, -50%)
+		transition: 500ms all ease-in-out
+
+		&.open
+			top: 50%
+			opacity: 1
+			visibility: visible
+
+		&.closed
+			top: -25%
+			opacity: 0
+			visibility: hidden
+
+		.close-button
+			width: 25px
+			height: 25px
+			position: absolute
+			top: 20px
+			right: 20px
+			cursor: pointer
+			transition: 350ms all ease
+
+			.c-bar
+				width: 25px
+				height: 2px
+				background-color: #ffffff
+				position: absolute
+				top: 11px
+				
+				&:nth-child(1)
+					transform: rotate(45deg)
+				&:nth-child(2)
+					transform: rotate(-45deg)
+
+			&:hover > .c-bar
+				opacity: 0.5
+
+		.download-options
+			position: absolute
+			top: 50%
+			left: 50%
+			transform: translate(-50%, -50%)
+			transition: 500ms all ease-in
+
+			&.downloading
+				opacity: 1
+				visibility: visible
+				top: 50%
+				transition: 0s
+
+			&.downloaded
+				opacity: 0
+				visibility: hidden
+				top: 30%								
+
+			.download
+				width: 150px
+				height: 150px
+				position: relative
+				cursor: pointer
+				transition: 250ms all ease-in-out
+
+				&:hover
+					background-color: map-get($blue, 'main')
+
+				.svg-download
+					position: absolute
+					top: 0
+					left: 0
+
+					.svg-download-border
+						fill: none
+						stroke: rgba(255, 255, 255, 0.05)
+						stroke-width: 3
+						transition: 1000ms all ease-in
+						transition-delay: 500ms
+						
+						&.open
+							stroke-dashoffset: 0
+
+						&.closed
+							stroke-dashoffset: 600
+							transition: 0s
+							transition-delay: 0s
+				
+				i
+					width: 100%
+					height: 100%
+					text-align: center
+					line-height: 120px
+					font-size: 70px
+					color: map-get($purple, 'light')
+					transition: 500ms all ease-in-out
+					transition-delay: 1000ms
+
+					&.open
+						opacity: 1
+						visibility: visible
+					&.closed
+						opacity: 0
+						visibility: hidden
+						transition: 0s
+						transition-delay: 0s
+
+				h2
+					width: 100%
+					position: absolute
+					bottom: 15px
+					font-family: Esphimere-Light
+					font-size: 9px
+					text-transform: uppercase
+					letter-spacing: 0.10em
+					text-align: center
+					color: #ffffff
+					transition: 500ms all ease-in-out
+					transition-delay: 1000ms
+				
+					&.open
+						opacity: 1
+						visibility: visible
+						bottom: 15px		
+
+					&.closed
+						opacity: 0
+						visibility: hidden
+						bottom: 0
+						transition: 0s
+						transition-delay: 0s
+
+				&.mac
+					margin-top: 50px
+
+		.download-message
+			width: 100%
+			position: absolute
+			top: 50%
+			transform: translate(0, -50%)
+			transition: 500ms all ease-in-out
+			transition-delay: 500ms
+
+			&.downloading
+				opacity: 0
+				visibility: hidden
+				top: 70%					
+
+			&.downloaded
+				opacity: 1
+				visibility: visible
+				top: 50%
+
+			h2
+				font-family: Esphimere
+				font-size: 10px
+				text-transform: uppercase
+				letter-spacing: 0.15em
+				text-align: center
+				color: #ffffff
+
+				&:nth-child(2)
+					padding-top: 3px
+				
+
+
+
+	
+@media screen and (min-width: 720px)
+	.download-overlay
+		.download-background
+			.download-options
+				width: 470px
+				height: 202px
+				display: flex
+				justify-content: space-between
+				.download
+					width: 200px
+					height: 200px
+					.svg-download
+						.svg-download-border
+							&.open
+								stroke-dashoffset: 0
+							&.closed
+								stroke-dashoffset: 800				
+					i
+						line-height: 170px
+						font-size: 90px
+					h2								
+						font-size: 10px
+					&.mac
+						margin-top: 0
+			.download-message
+				h2
+					font-size: 13px
+					&:nth-child(2)
+						padding-top: 5px
+
+@media screen and (min-width: 1024px)
+	.download-overlay
+		.download-background
+			width: 80%
+			height: 60%
+			.download-message
+				h2
+					font-size: 15px
+
+@media screen and (min-width: 1400px)
+	.download-overlay
+		.download-background
+			width: 80%
+			height: 70%			
+			.download-options
+				width: 700px
+				height: 304px
+				.download
+					width: 300px
+					height: 300px
+					.svg-download
+						.svg-download-border
+							&.open
+								stroke-dashoffset: 0
+							&.closed
+								stroke-dashoffset: 1200			
+					i
+						line-height: 270px
+						font-size: 140px
+					h2
+						bottom: 25px
+						font-size: 12px						
+						&.open
+							bottom: 25px
+			.download-message
+				h2
+					font-size: 18px
+					&:nth-child(2)
+						padding-top: 10px
+
+
+@media screen and (min-width: 1500px)
+	.download-overlay
+		.download-background
+			width: 70%

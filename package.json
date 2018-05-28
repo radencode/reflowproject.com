@@ -25,6 +25,7 @@
   },
   "homepage": "https://github.com/radencode/reflowproject.com#readme",
   "dependencies": {
+    "@fortawesome/fontawesome-free-webfonts": "^1.0.9",
     "babel-cli": "^6.26.0",
     "babel-core": "^6.26.3",
     "babel-eslint": "^8.2.3",

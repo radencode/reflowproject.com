@@ -3,16 +3,25 @@
   font-family: "Esphimere"
   src: url(./resources/fonts/Esphimere.otf)
 @font-face
+  font-family: "Esphimere-Thin"
+  src: url(./resources/fonts/Esphimere-Thin.otf)
+@font-face
   font-family: "Esphimere-Light"
   src: url(./resources/fonts/Esphimere-Light.otf)
 @font-face
   font-family: "Esphimere-Bold"
   src: url(./resources/fonts/Esphimere-Bold.otf)
 
+
+//Font Awesome
+@import '../node_modules/@fortawesome/fontawesome-free-webfonts/css/fa-brands.css'
+@import '../node_modules/@fortawesome/fontawesome-free-webfonts/css/fontawesome.css'
+
 //Colors
-$purple: ( light: #7A418B, dark: #4D2F5F)
 $black: #070A0D
-$blue: ( main: #141B23, light: #18212B, dark: #0E141A ) 
+$blue: ( main: #141B23, light: #18212B, dark: #0E141A )
+$gray: #212933 
+$purple: ( light: #7A418B, dark: #4D2F5F)
 
 body, html
   background-color: map-get($blue, 'dark')
@@ -26,8 +35,13 @@ h1, h2, h3, p
 	font-size: 100%
 	font-weight: normal
 
+a, a:visited, a:active
+  text-decoration: none
+
 //Containers
+@import './containers/download/download.sass'
 @import './containers/header/header.sass'
 @import './containers/loader/loader.sass'
 @import './containers/logo/logo.sass'
 @import './containers/menu/menu.sass'
+@import './containers/slider/slider.sass'

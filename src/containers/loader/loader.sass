@@ -9,7 +9,7 @@
 	background-repeat: repeat
 
 	&.slideout
-		animation: slideout
+		animation: slideout forwards
 		animation-delay: 500ms
 		animation-duration: 1s
 		animation-iteration-count: 1
@@ -18,8 +18,6 @@
 		@keyframes slideout
 			0%
 				left: 0
-			80%
-				left: -20vw
 			100%
 				left: -100vw
 
@@ -75,7 +73,7 @@
 					100%
 						transform: rotate(360deg)
 
-			.slider
+			.slider-container
 				width: 180px
 				height: 50px
 				position: absolute

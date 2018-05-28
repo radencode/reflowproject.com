@@ -1,0 +1,67 @@
+.download-button
+	border: 1px solid rgba(24, 33, 43, 0.4)
+	position: absolute
+	left: 50%
+	bottom: 30px
+	transform: translate(-50%, 0)
+	padding: 1px
+	transition: 500ms opacity ease-in-out
+	transition-delay: 1500ms
+	opacity: 0
+	
+	h3
+		background-color: rgba(24, 33, 43, 0.4)
+		padding: 15px 20px
+		white-space: nowrap
+		text-transform: uppercase
+		font-family: Esphimere
+		font-size: 10px
+		letter-spacing: 0.15em
+		color: #FFF
+		cursor: pointer
+		transition: 250ms all ease-in-out
+
+	&:hover > h3 
+		background-color: rgba(24, 33, 43, 1)
+
+	&.active
+		pointer-events: auto
+		
+	&.inactive
+		pointer-events: none
+
+	&.animate		
+		opacity: 1
+
+@media screen and (min-width: 375px)
+	.download-button
+		bottom: 80px      
+		h3
+			padding: 15px 25px
+			font-size: 11px
+
+
+
+@media screen and (min-width: 1024px)
+	.download-button
+		display: inline-block
+		border: 1px solid rgba(24, 33, 43, 0.4)
+		position: relative
+		top: 180px
+		bottom: auto
+		left: 0
+		transform: translate(0, 0)
+
+
+@media screen and (min-width: 1600px)
+	.download-button
+		top: 220px
+
+@media screen and (min-width: 1900px)
+	.download-button
+		border: 1px solid rgba(24, 33, 43, 0.4)
+		padding: 2px
+
+@media screen and (min-width: 2200px)  
+	.download-button
+		top: 250px

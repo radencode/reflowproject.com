@@ -1,24 +1,23 @@
 .menu
-  background: linear-gradient(to bottom, #0E141A , #18212B)
+  background-color: map-get($blue, 'light')
   position: absolute
   z-index: 10
+  width: 100vw
+  height: 100vh 
+  top: 0
+  left: 0
 
-  &.open
-    width: 100vw
-    height: 100vh
-    transition: 1s all ease-in-out
-    animation: bubble-in 1000ms ease-in
-    animation-iteration-count: 1
-    
+  &.open    
+    animation: bubble-in 500ms ease-in    
 
   @keyframes bubble-in
     0%
       width: 100px
       height: 100px
       top: 50%
-      left: -300px
+      left: -100px
       transform: translate(0, -50%) rotate(45deg)
-    80%
+    60%
       width: 100px
       height: 100px
       transform: translate(-50%, -50%) rotate(45deg)
@@ -32,4 +31,346 @@
       left: 0
 
   &.closed
+    transition: 500ms all ease-in-out
     left: -100vw
+
+  .title
+    position: relative
+    height: 32px
+    opacity: 0
+    visibility: hidden
+
+    &.animate
+      transition: 350ms all ease-in
+      opacity: 1
+      visibility: visible
+
+    &.dev
+      margin-top: 75px
+    &.git
+
+    .background, .highlight
+      width: auto
+      height: 32px
+      position: absolute
+      top: 0
+      left: 50%
+      transform: translate(-50%, 0)
+      text-align: center
+      line-height: 32px
+      font-family: Esphimere-Bold      
+      letter-spacing: 0.15em
+      text-transform: uppercase
+      white-space: nowrap
+
+    .background
+      font-size: 32px
+      color: $gray
+
+    .highlight
+      font-size: 18px
+      color: map-get($purple, 'light')
+
+  .developers
+    width: 170px
+    height: auto
+    position: relative
+    margin: 30px auto
+
+    .person
+      text-align: center          
+      white-space: nowrap
+      color: #FFF
+      opacity: 0
+      visibility: hidden
+      transition: 350ms all ease-in
+
+      &.animate
+        transition-delay: 350ms
+        opacity: 1
+        visibility: visible
+
+      .name
+        font-family: Esphimere
+        letter-spacing: 0.15em
+        font-size: 16px
+        span
+          font-family: Esphimere-Bold
+
+      .role
+        font-family: Esphimere-Thin
+        letter-spacing: 0.1em
+        padding-top: 2px
+        font-size: 11px
+
+    .breaker
+      background-color: map-get($purple, 'light')
+      width: 170px
+      height: 2px
+      position: relative
+      margin: 15px 0
+      opacity: 0
+      visibility: hidden
+      transition: 350ms all ease-in
+
+      &.animate
+        transition-delay: 700ms
+        opacity: 1
+        visibility: visible
+
+      .dot
+        background-color: map-get($blue, 'light')
+        width: 16px
+        height: 16px
+        border-radius: 50%
+        position: absolute
+        top: -7px
+
+        &:after
+          display: block
+          content: ''
+          background-color: #FFF
+          width: 6px
+          height: 6px
+          border-radius: 50%
+          position: absolute
+          top: 5px
+          left: 5px
+
+        &.left
+          left: 30px
+        &.right
+          right: 30px
+
+  .repo
+    width: 96px
+    height: 96px
+    margin: 30px auto
+    opacity: 0
+    visibility: hidden
+    transition: 350ms all ease-in
+
+    &.animate
+      transition-delay: 950ms
+      opacity: 1
+      visibility: visible
+
+    .circle
+      display: block
+      width: 92px
+      height: 92px
+      border-radius: 50%
+      border: 2px solid $gray
+      position: relative
+      text-align: center
+
+      .icon-link
+        width: 100%
+        position: absolute
+        top: 50%
+        transform: translate(0, -50%)
+
+        i
+          font-size: 35px
+          color: map-get($purple, 'light')
+
+        h3
+          padding-top: 7px
+          display: block
+          font-family: Esphimere     
+          letter-spacing: 0.15em
+          text-transform: uppercase
+          white-space: nowrap
+          font-size: 10px
+          color: #FFF
+
+  .copyright
+    width: 100%
+    position: absolute
+    bottom: 30px
+    font-family: Esphimere     
+    letter-spacing: 0.2em
+    text-transform: uppercase
+    text-align: center
+    white-space: nowrap
+    font-size: 9px
+    color: #FFF
+    opacity: 0
+    visibility: hidden
+    transition: 350ms all ease-in    
+
+    &.animate
+      transition-delay: 950ms
+      opacity: 1
+      visibility: visible
+
+
+@media screen and (min-width: 360px)
+  .menu
+    .title
+      height: 36px
+      &.dev
+        margin-top: 100px
+      .background, .highlight
+        height: 36px
+        line-height: 36px
+      .background
+        font-size: 36px
+      .highlight
+        font-size: 22px
+    .developers
+      width: 180px
+      margin: 50px auto
+
+      .person
+        .name
+          font-size: 18px
+        .role
+          font-size: 13px
+      .breaker
+        width: 180px
+        margin: 20px 0
+    .copyright
+      font-size: 10px
+
+@media screen and (min-width: 375px)
+  .menu
+    .title
+      height: 40px
+      &.dev
+        margin-top: 100px
+      .background, .highlight
+        height: 40px
+        line-height: 40px
+      .background
+        font-size: 40px
+      .highlight
+        font-size: 26px
+    .developers
+      width: 200px
+      margin: 60px auto
+
+      .person
+        .name
+          font-size: 20px
+        .role
+          font-size: 15px
+      .breaker
+        width: 200px
+        margin: 25px 0
+    .copyright
+      font-size: 11px
+      bottom: 50px
+  
+@media screen and (min-width: 400px)
+  .menu
+    .menu-container
+      position: absolute
+      top: 50%
+      left: 50%
+      transform: translate(-50%, -50%)
+
+
+@media screen and (min-width: 1024px)
+  .menu
+    background-color: transparent
+    position: absolute
+    z-index: 0
+    width: 100%
+    height: 100%
+    top: 0
+    left: 0
+    transform: translate(0, 0)   
+    .title
+      height: 20px
+      &.git
+        margin-top: 75px
+      .background, .highlight 
+        height: 20px
+        line-height: 20px
+      .background
+        font-size: 20px
+        color: #FFF
+        opacity: 0.03
+      .highlight
+        font-size: 14px
+    .developers
+      width: 140px
+      margin: 30px auto
+      .person
+        .name
+          font-size: 13px
+        .role
+          font-size: 9px
+      .breaker
+        width: 140px  
+    .repo
+      width: 76px
+      height: 76px
+      .circle
+        width: 72px
+        height: 72px      
+        .icon-link
+          i
+            font-size: 25px
+          h3
+            font-size: 9px
+    .copyright
+      white-space: pre-wrap
+      line-height: 12px
+      font-size: 8px
+      bottom: 20px
+
+
+@media screen and (min-width: 1400px)
+  .menu
+    .title
+      height: 30px
+      &.dev
+        margin-top: 100px
+      &.git
+        margin-top: 100px
+      .background, .highlight 
+        height: 30px
+        line-height: 30px
+      .background
+        font-size: 30px
+        opacity: 0.04
+      .highlight
+        font-size: 16px
+    .developers
+      width: 180px
+      margin: 50px auto
+      .person
+        .name
+          font-size: 16px
+        .role
+          padding-top: 4px
+          font-size: 12px
+      .breaker
+        width: 180px
+        .dot
+          background-color: rgba(24, 33, 43, 0.6)
+          &.left
+            left: 40px
+          &.right
+            right: 40px  
+    .repo
+      margin: 50px auto
+      width: 96px
+      height: 96px
+      .circle
+        border: 2px solid rgba(255, 255, 255, 0.04)
+        width: 92px
+        height: 92px      
+        .icon-link
+          i
+            font-size: 30px
+          h3
+            font-size: 10px
+    .copyright
+      font-family: Esphimere-Light
+      white-space: pre-wrap
+      line-height: 12px
+      font-size: 9px
+      bottom: 30px

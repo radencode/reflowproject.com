@@ -18,6 +18,13 @@
 			position: absolute
 			top: 10px
 			left: 10px
+			opacity: 0
+			transform: scale(0)
+			transition: 500ms all ease-in-out
+
+			&.animate
+				opacity: 1
+				transform: scale(1)
 
 		.logo-border-svg
 			width: 40px
@@ -31,7 +38,11 @@
 				fill: none
 				stroke: map-get($purple, 'light')
 				stroke-width: 2
-			
+				stroke-dashoffset: 1000
+				transition: 2s all ease-in-out
+
+				&.animate
+					stroke-dashoffset: 0
 
 	.logo-labels
 		padding-top: 10px
@@ -44,3 +55,56 @@
 			letter-spacing: 0.4em
 			text-transform: uppercase
 			color: #FFF
+			padding-left: 50px
+			opacity: 0
+			transition: 500ms ease-in-out
+
+			&:nth-child(1)
+				&.animate
+					transition-delay: 500ms
+					padding-left: 0px
+					opacity: 1
+			&:nth-child(2)
+				&.animate
+					transition-delay: 750ms
+					padding-left: 0px
+					opacity: 1
+
+@media screen and (min-width: 1024px)
+	.logo-container
+		top: 20px
+		left: 20px
+
+		.logo
+			width: 50px
+			height: 50px
+
+			.logo-reflow-svg
+				width: 25px
+				height: 25px
+				top: 12.5px
+				left: 12.5px
+
+			.logo-border-svg
+				width: 50px
+				height: 50px			
+
+		.logo-labels
+			padding-top: 11px
+			padding-left: 12px
+			h2
+				padding-top: 3px
+				height: 10px
+				font-size: 10px
+
+@media screen and (min-width: 1400px)
+	.logo-container
+		top: 25px
+		left: 25px
+		.logo-labels
+			padding-top: 5px
+			padding-left: 15px
+			h2
+				padding-top: 5px
+				height: 13px
+				font-size: 13px
