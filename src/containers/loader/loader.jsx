@@ -4,7 +4,7 @@ import React from 'react';
 class Loader extends React.Component {
 	constructor() {
 		super();
-		this.state = { message: '', messageStage: '', ballStage: '', slideOut: false };
+		this.state = { message: '', messageStage: '', slideOut: false };
 	}
 
 	componentDidMount() {
@@ -35,14 +35,9 @@ class Loader extends React.Component {
 
 	initialize = () => {
 		setTimeout(() => {
-			this.setState({ ...this.state, messageStage: 'initial', ballStage: 'initial' });
+			this.setState({ ...this.state, messageStage: 'initial' });
 			setTimeout(async () => {
-				await this.typeMessageAnimation('Rename.', false);
-				this.setState({ ...this.state, ballStage: 'initial first' });
-				await this.typeMessageAnimation('Group.', false);
-				this.setState({ ...this.state, ballStage: 'initial second' });
-				await this.typeMessageAnimation('Manage.', true);
-				this.setState({ ...this.state, ballStage: 'initial third' });
+				await this.typeMessageAnimation('Reflow.', true);
 				this.props.finishLoading();
 				setTimeout(() => {
 					this.setState({ ...this.state, messageStage: 'loaded', slideOut: true });
@@ -61,11 +56,6 @@ class Loader extends React.Component {
 							<div class={`typed ${this.state.messageStage}`}>{this.state.message}</div>
 							<div class={`highlight ${this.state.messageStage}`}>{this.state.message}</div>
 						</div>
-					</div>
-					<div class='bounce-loader'>
-						<div class={`ball ${this.state.ballStage}`} />
-						<div class={`ball ${this.state.ballStage}`} />
-						<div class={`ball ${this.state.ballStage}`} />
 					</div>
 					<div class='logo-loader'>
 						<svg

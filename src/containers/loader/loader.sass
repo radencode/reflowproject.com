@@ -109,51 +109,6 @@
 						transition: 750ms all ease
 						width: 180px
 
-		.bounce-loader
-			display: flex
-			width: 60px
-			height: 50px
-			padding-top: 150px
-			margin: auto
-			justify-content: space-between
-
-			.ball
-				background-color: map-get($purple, 'dark')
-				width: 10px
-				height: 10px
-				border-radius: 50%
-				position: relative
-				top: 0
-				opacity: 0
-
-				&.initial
-					transition: 300ms ease-in
-					opacity: 1
-
-					&:nth-child(2)
-						transition-delay: 100ms
-					&:nth-child(3)
-						transition-delay: 200ms
-
-					&.first:nth-child(1)						
-						transition: 500ms ease-in
-
-					&.first:nth-child(1), &.second:nth-child(1),	&.third:nth-child(1)
-						top: 100px
-						opacity: 0
-
-					&.second:nth-child(2)						
-						transition: 500ms ease-in
-
-					&.second:nth-child(2),	&.third:nth-child(2)
-						top: 100px
-						opacity: 0
-
-					&.third:nth-child(3)
-						top: 100px
-						opacity: 0
-						transition: 500ms ease-in
-
 		.logo-loader
 			width: 240px
 			height: 240px
